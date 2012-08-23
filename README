@@ -1,6 +1,6 @@
-Scrollable tableView for iOS that moves in a left/right direction but is as efficient as a regular UITableView
+Horizontal scrollable navigation with chapter headings, based on HorizontalTableView by TheVole
 
-Copyright (c) 2010 Martin Volerich - Bill Bear Technologies. All rights reserved.
+Copyright (c) 2012 Sunny Purewal. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without
