@@ -13,12 +13,14 @@
 		0141A13915E6AA4C0035089F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0141A13715E6AA4C0035089F /* InfoPlist.strings */; };
 		0141A13B15E6AA4C0035089F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141A13A15E6AA4C0035089F /* main.m */; };
 		0141A13F15E6AA4C0035089F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141A13E15E6AA4C0035089F /* AppDelegate.m */; };
-		0141A14F15E6AA7A0035089F /* ChapterNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141A14615E6AA7A0035089F /* ChapterNavigationViewController.m */; };
-		0141A15015E6AA7A0035089F /* ChapterNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0141A14715E6AA7A0035089F /* ChapterNavigationViewController.xib */; };
 		0141A15115E6AA7A0035089F /* ChapterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141A14915E6AA7A0035089F /* ChapterScroll.m */; };
 		0141A15215E6AA7A0035089F /* ChapterScroll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0141A14A15E6AA7A0035089F /* ChapterScroll.xib */; };
 		0141A15315E6AA7A0035089F /* ChapterTopScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141A14C15E6AA7A0035089F /* ChapterTopScroll.m */; };
 		0141A15415E6AA7A0035089F /* HorizontalTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141A14E15E6AA7A0035089F /* HorizontalTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		015C5AB11602879D00D7BF4C /* ChapterPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C5AAF1602879D00D7BF4C /* ChapterPage.m */; };
+		015C5AB21602879D00D7BF4C /* ChapterPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015C5AB01602879D00D7BF4C /* ChapterPage.xib */; };
+		015C5AB716028A9000D7BF4C /* ChapterNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C5AB516028A8F00D7BF4C /* ChapterNavigationViewController.m */; };
+		015C5AB816028A9000D7BF4C /* ChapterNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015C5AB616028A8F00D7BF4C /* ChapterNavigationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +34,6 @@
 		0141A13C15E6AA4C0035089F /* HorizontalNavigation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HorizontalNavigation-Prefix.pch"; sourceTree = "<group>"; };
 		0141A13D15E6AA4C0035089F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0141A13E15E6AA4C0035089F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0141A14515E6AA7A0035089F /* ChapterNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterNavigationViewController.h; sourceTree = "<group>"; };
-		0141A14615E6AA7A0035089F /* ChapterNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterNavigationViewController.m; sourceTree = "<group>"; };
-		0141A14715E6AA7A0035089F /* ChapterNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterNavigationViewController.xib; sourceTree = "<group>"; };
 		0141A14815E6AA7A0035089F /* ChapterScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterScroll.h; sourceTree = "<group>"; };
 		0141A14915E6AA7A0035089F /* ChapterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterScroll.m; sourceTree = "<group>"; };
 		0141A14A15E6AA7A0035089F /* ChapterScroll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterScroll.xib; sourceTree = "<group>"; };
@@ -42,6 +41,12 @@
 		0141A14C15E6AA7A0035089F /* ChapterTopScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterTopScroll.m; sourceTree = "<group>"; };
 		0141A14D15E6AA7A0035089F /* HorizontalTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalTableView.h; sourceTree = "<group>"; };
 		0141A14E15E6AA7A0035089F /* HorizontalTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalTableView.m; sourceTree = "<group>"; };
+		015C5AAE1602879D00D7BF4C /* ChapterPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterPage.h; sourceTree = "<group>"; };
+		015C5AAF1602879D00D7BF4C /* ChapterPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterPage.m; sourceTree = "<group>"; };
+		015C5AB01602879D00D7BF4C /* ChapterPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterPage.xib; sourceTree = "<group>"; };
+		015C5AB416028A8E00D7BF4C /* ChapterNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterNavigationViewController.h; sourceTree = "<group>"; };
+		015C5AB516028A8F00D7BF4C /* ChapterNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterNavigationViewController.m; sourceTree = "<group>"; };
+		015C5AB616028A8F00D7BF4C /* ChapterNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterNavigationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +93,12 @@
 		0141A13415E6AA4C0035089F /* HorizontalNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				0141A14515E6AA7A0035089F /* ChapterNavigationViewController.h */,
-				0141A14615E6AA7A0035089F /* ChapterNavigationViewController.m */,
-				0141A14715E6AA7A0035089F /* ChapterNavigationViewController.xib */,
+				015C5AB416028A8E00D7BF4C /* ChapterNavigationViewController.h */,
+				015C5AB516028A8F00D7BF4C /* ChapterNavigationViewController.m */,
+				015C5AB616028A8F00D7BF4C /* ChapterNavigationViewController.xib */,
+				015C5AAE1602879D00D7BF4C /* ChapterPage.h */,
+				015C5AAF1602879D00D7BF4C /* ChapterPage.m */,
+				015C5AB01602879D00D7BF4C /* ChapterPage.xib */,
 				0141A14815E6AA7A0035089F /* ChapterScroll.h */,
 				0141A14915E6AA7A0035089F /* ChapterScroll.m */,
 				0141A14A15E6AA7A0035089F /* ChapterScroll.xib */,
@@ -167,8 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0141A13915E6AA4C0035089F /* InfoPlist.strings in Resources */,
-				0141A15015E6AA7A0035089F /* ChapterNavigationViewController.xib in Resources */,
 				0141A15215E6AA7A0035089F /* ChapterScroll.xib in Resources */,
+				015C5AB21602879D00D7BF4C /* ChapterPage.xib in Resources */,
+				015C5AB816028A9000D7BF4C /* ChapterNavigationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,10 +190,11 @@
 			files = (
 				0141A13B15E6AA4C0035089F /* main.m in Sources */,
 				0141A13F15E6AA4C0035089F /* AppDelegate.m in Sources */,
-				0141A14F15E6AA7A0035089F /* ChapterNavigationViewController.m in Sources */,
 				0141A15115E6AA7A0035089F /* ChapterScroll.m in Sources */,
 				0141A15315E6AA7A0035089F /* ChapterTopScroll.m in Sources */,
 				0141A15415E6AA7A0035089F /* HorizontalTableView.m in Sources */,
+				015C5AB11602879D00D7BF4C /* ChapterPage.m in Sources */,
+				015C5AB716028A9000D7BF4C /* ChapterNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +304,7 @@
 				0141A14415E6AA4C0035089F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

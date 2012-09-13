@@ -33,7 +33,14 @@
 
 @implementation ChapterScroll
 
-@synthesize topView, mainScrollView;
+@synthesize topView, mainScrollView, selectedIndex;
+
+-(void)setSelectedIndex:(int)index
+{
+    [[items objectAtIndex:selectedIndex] setIsActive:NO];
+    selectedIndex = index;
+    [[items objectAtIndex:selectedIndex] setIsActive:YES];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,40 +48,6 @@
     if (self) {
         items = [[NSMutableArray alloc] init];
         
-        for (int i = 0; i < 40; i++) {
-            UIView *rect = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kCSitemWidth, kCSitemWidth)];
-            [rect setBackgroundColor:[UIColor blackColor]];
-            UIView *innerRect = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kCSitemWidth - 10, kCSitemWidth - 10)];
-            UIColor *color;
-            if (i < 5) {
-                color = [UIColor redColor];
-            }
-            else if (i < 12) {
-                color = [UIColor orangeColor];
-            }
-            else if (i < 24) {
-                color = [UIColor yellowColor];
-            }
-            else if (i < 30) {
-                color = [UIColor greenColor];
-            }
-            else {
-                color = [UIColor blueColor];
-            }
-            [innerRect setBackgroundColor:color];
-            [rect addSubview:innerRect];
-            [items addObject:rect];
-        }
-        
-        sectionCounts = [[NSMutableDictionary alloc] init];
-        [sectionCounts setObject:[NSNumber numberWithInt:5] forKey:[NSNumber numberWithInt:0]];
-        [sectionCounts setObject:[NSNumber numberWithInt:7] forKey:[NSNumber numberWithInt:1]];
-        [sectionCounts setObject:[NSNumber numberWithInt:12] forKey:[NSNumber numberWithInt:2]];
-        [sectionCounts setObject:[NSNumber numberWithInt:6] forKey:[NSNumber numberWithInt:3]];
-        [sectionCounts setObject:[NSNumber numberWithInt:10] forKey:[NSNumber numberWithInt:4]];
-        
-        minIndex = INT_MAX;
-        maxIndex = INT_MIN;
     }
     return self;
 }
@@ -83,6 +56,48 @@
 {
     [super viewDidLoad];
     
+    for (int i = 0; i < 40; i++) {
+        ChapterPage *rect = [[ChapterPage alloc] initWithFrame:CGRectMake(0, 0, 200, 150)];
+        
+        [rect setIsActive:NO];
+        [rect.titleLabel setText:@"Title"];
+        NSString *imgName;
+        UIColor *color;
+        if (i < 8) {
+            color = [UIColor colorWithRed:0.76 green:0.8 blue:0.12 alpha:1];
+            imgName = [NSString stringWithFormat:@"tour%d-nav.jpg", i+1];
+            [rect setImageView:imgName];
+        }
+        else if (i < 12) {
+            color = [UIColor colorWithRed:0.0 green:0.68 blue:0.84 alpha:1];
+            imgName = [NSString stringWithFormat:@"config%d-nav.jpg", i-7];
+            [rect setImageView:imgName];
+        }
+        else if (i < 24) {
+            color = [UIColor colorWithRed:0.96 green:0.55 blue:0.16 alpha:1];
+        }
+        else if (i < 30) {
+            color = [UIColor colorWithRed:0.34 green:0.31 blue:0.27 alpha:1];
+        }
+        else {
+            color = [UIColor colorWithRed:0.44 green:0.44 blue:0.45 alpha:1];
+        }
+        //if(imgName !=nil)
+            
+        
+        [rect.page setBackgroundColor:color];
+        [items addObject:rect];
+    }
+    
+    sectionCounts = [[NSMutableDictionary alloc] init];
+    [sectionCounts setObject:[NSNumber numberWithInt:8] forKey:[NSNumber numberWithInt:0]];
+    [sectionCounts setObject:[NSNumber numberWithInt:4] forKey:[NSNumber numberWithInt:1]];
+    [sectionCounts setObject:[NSNumber numberWithInt:12] forKey:[NSNumber numberWithInt:2]];
+    [sectionCounts setObject:[NSNumber numberWithInt:6] forKey:[NSNumber numberWithInt:3]];
+    [sectionCounts setObject:[NSNumber numberWithInt:10] forKey:[NSNumber numberWithInt:4]];
+    
+    minIndex = INT_MAX;
+    maxIndex = INT_MIN;
     
     CGFloat xLoc = 0;
     int sections = [sectionCounts count];
@@ -91,19 +106,19 @@
         UIColor *color;
         switch (i) {
             case 0:
-                color = [UIColor redColor];
+                color = [UIColor colorWithRed:0.76 green:0.8 blue:0.12 alpha:1];
                 break;
             case 1:
-                color = [UIColor orangeColor];
+                color = [UIColor colorWithRed:0.0 green:0.68 blue:0.84 alpha:1];
                 break;
             case 2:
-                color = [UIColor yellowColor];
+                color = [UIColor colorWithRed:0.96 green:0.55 blue:0.16 alpha:1];
                 break;
             case 3:
-                color = [UIColor greenColor];
+                color = [UIColor colorWithRed:0.34 green:0.31 blue:0.27 alpha:1];
                 break;
             case 4:
-                color = [UIColor blueColor];
+                color = [UIColor colorWithRed:0.44 green:0.44 blue:0.45 alpha:1];
                 break;
         }
         UIButton *rect = [[UIButton alloc] initWithFrame:CGRectMake(xLoc, 0, 784, 44)];
@@ -115,6 +130,7 @@
     [topView setItems:sectionHeaders];
     [topView selectChapter:0];
     [self.mainScrollView performSelector:@selector(refreshData) withObject:nil afterDelay:0.3f];
+    [self setSelectedIndex:0];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -125,10 +141,14 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)scrollToSelectedIndex
+{
+    [mainScrollView scrollToPage:selectedIndex];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
-}
+    return UIInterfaceOrientationIsLandscape(interfaceOrientation);}
 
 -(int)itemsBeforeSection:(int)section
 {
@@ -200,8 +220,6 @@
         i++;
     }
     
-//    NSLog(@"%d,%d,%d",priorCount,i,index);
-    
     lastIndex = index;
 }
 
@@ -224,6 +242,11 @@
     [topView revealSection:i byAmount:fraction];
 }
 
+-(void)tableView:(HorizontalTableView *)tableView didSelectViewAtIndex:(NSInteger)index
+{
+    [self setSelectedIndex:index];
+}
+
 #pragma mark scroll header delegate
 -(void)scrollHeader:(ChapterTopScroll *)scrollHeader didSelectChapter:(int)index
 {
@@ -232,7 +255,7 @@
     for (int i = 0; i < index; i++) {
         chapterStart += [[sectionCounts objectForKey:[NSNumber numberWithInt:i]] intValue];
     }
-    
+
     [mainScrollView scrollToPage:chapterStart];
 }
 @end

@@ -40,6 +40,7 @@
 - (void)layoutPhysicalPage:(NSUInteger)pageIndex;
 - (UIView *)viewForPhysicalPage:(NSUInteger)pageIndex;
 - (void)removeColumn:(NSInteger)index;
+- (void)didTapView:(UITapGestureRecognizer*)gesture;
 
 @end
 
@@ -218,6 +219,11 @@
     self.scrollView = scroller;
 	[self addSubview:scroller];
     [scroller release], scroller = nil;
+    
+    UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)];
+    [tapper setNumberOfTapsRequired:1];
+    [tapper setDelegate:self];
+    [self addGestureRecognizer:tapper];
 }
 
 
@@ -232,8 +238,23 @@
 
 -(void)scrollToPage:(NSInteger)page
 {
-    forcedScroll = YES;
-    [self.scrollView setContentOffset:CGPointMake(page * [self columnWidth], 0) animated:YES];
+//    int maxIndex = [self pageSize].width / [self columnWidth];
+//    if (page > maxIndex) {
+//        page = maxIndex;
+//    }
+    CGFloat xOffset = page * [self columnWidth];
+    if (self.scrollView.contentOffset.x != xOffset) {
+        forcedScroll = YES;
+        [self.scrollView setContentOffset:CGPointMake(xOffset, 0) animated:YES];
+    }
+}
+
+-(void)didTapView:(UITapGestureRecognizer *)gesture
+{
+    CGPoint point = [gesture locationInView:_scrollView];
+    CGFloat xPoint = point.x;
+    int index = floorf(xPoint/[self columnWidth]);
+    [_delegate tableView:self didSelectViewAtIndex:index];
 }
 
 #pragma mark -

@@ -32,12 +32,11 @@
 - (CGFloat)columnWidthForTableView:(HorizontalTableView *)tableView;
 - (void)tableView:(HorizontalTableView *)tableView pageIndexDidChange:(NSInteger)index;
 - (void)tableView:(HorizontalTableView *)tableView didScroll:(UIScrollView *)scrollView;
+- (void)tableView:(HorizontalTableView *)tableView didSelectViewAtIndex:(NSInteger)index;
 
 @end
 
-
-
-@interface HorizontalTableView : UIView {
+@interface HorizontalTableView : UIView<UIGestureRecognizerDelegate> {
 	NSMutableArray *_pageViews;
 	UIScrollView *_scrollView;
 	NSUInteger _currentPageIndex;

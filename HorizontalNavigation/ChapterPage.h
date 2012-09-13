@@ -1,7 +1,7 @@
 //
-//  ChapterScroll.h
+//  ChapterPage.h
 //
-//  Created by Sunny Purewal on 12-08-21.
+//  Created by Sunny Purewal on 12-08-27.
 //  Copyright 2012 Sunny Purewal. All rights reserved.
 //
 
@@ -20,27 +20,22 @@
 // AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 // OR OTHER DEALINGS IN THE SOFTWARE.
 
-#define kCSitemWidth 200
-#define kCSitemHeight 150
-
 #import <UIKit/UIKit.h>
-#import "HorizontalTableView.h"
-#import "ChapterTopScroll.h"
-#import "ChapterPage.h"
 
-@interface ChapterScroll : UIViewController<HorizontalTableViewDelegate,ChapterScrollHeaderDelegate>
+@interface ChapterPage : UIView
 {
-    NSMutableArray *items;
-    NSMutableArray *sectionHeaders;
-    NSMutableDictionary *sectionCounts;
-    int minIndex;
-    int maxIndex;
-    int selectedIndex;
+    BOOL isActive;
+    UIView *page;
+    UIView *overlay;
+    UILabel *titleLabel;
+    UIImageView *imageView;
 }
 
-@property (nonatomic, strong) IBOutlet ChapterTopScroll *topView;
-@property (nonatomic, strong) IBOutlet HorizontalTableView *mainScrollView;
-@property (nonatomic) int selectedIndex;
+@property (nonatomic) BOOL isActive;
+@property (nonatomic, strong) IBOutlet UIView *page;
+@property (nonatomic, strong) IBOutlet UIView *overlay;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *image;
 
--(void)scrollToSelectedIndex;
+-(void)setImageView:(NSString *)imageName;
 @end
