@@ -1,9 +1,8 @@
 //
 //  ChapterNavigationViewController.m
-//  ngc
 //
 //  Created by Sunny Purewal on 12-08-20.
-//  Copyright (c) 2012 Bio-Rad. All rights reserved.
+//  Copyright 2012 Sunny Purewal. All rights reserved.
 //
 
 #import "ChapterNavigationViewController.h"
